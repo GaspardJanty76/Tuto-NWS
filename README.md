@@ -16,7 +16,7 @@ Dans un premier temps, nous allons créer notre arborescence de fichiers :
 
 Commençons par le fichier 'config.json'. Dans celui-ci, nous allons entrer toutes les données nécessaires à la connexion à la base de données.
 
-Pour ce faire, nous aurons besoin de l'**adresse de l'hôte** de la base de données, du **port** sur lequel elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données, ainsi que de son **mot de passe** et enfin du **nom de la base de données**.
+Pour ce faire, nous aurons besoin de l'**adresse de l'hôte** de la base de données, du **port** sur lequel elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données ainsi que de son **mot de passe**.
 
 Voici donc le code du fichier JSON. Veillez à changer les informations par vos propres données :
 
@@ -25,8 +25,7 @@ Voici donc le code du fichier JSON. Veillez à changer les informations par vos 
 "host": "adresse_de_votre_bdd",
 "port": "port_de_votre_bdd",
 "username": "utilisateur_de_votre_bdd",
-"password": "mot_de_passe_de_votre_bdd",
-"database": "nom_de_votre_bdd"
+"password": "mot_de_passe_de_votre_bdd"
 }
 ```
 
@@ -34,7 +33,9 @@ Voilà, maintenant votre fichier JSON est prêt à l'emploi. N'hésitez pas à l
 
 ## 3 | Le fichier dbConnect.php
 
-Passons mainteant au fichier dbCOnnect, le fichier le plus conséquent de ce tuto.
+Passons mainteant au fichier dbConnect, le fichier le plus conséquent de ce tuto.
+
+### a. class et variables
 
 Pour commencer, nous allons ouvrir une balise php et créer notre class 'DBManager' et initialiser nos varaibles privées 'db_name' et 'pdo'
 
@@ -47,4 +48,9 @@ class DBManager {
 ?>
 
 ```
+
+Comme vous avez pu donc le comprendre ici nous allons préférer PDO à mysqli car il s'adapte à tout type de base de données et est bien plus complet et complexe que mysqli.
+
+### b. 
+
 
