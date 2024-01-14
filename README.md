@@ -32,4 +32,19 @@ Voici donc le code du fichier JSON. Veillez à changer les informations par vos 
 
 Voilà, maintenant votre fichier JSON est prêt à l'emploi. N'hésitez pas à le placer dans un fichier gitignore si vous publiez vos travaux sur GitHub afin que personne n'ait accès à vos données sensibles.
 
+## 3 | Le fichier dbConnect.php
+
+Passons mainteant au fichier dbCOnnect, le fichier le plus conséquent de ce tuto.
+
+Pour commencer, nous allons ouvrir une balise php et créer notre class 'DBManager' et initialiser nos varaibles privées 'db_name' et 'pdo'
+
+```php
+<?php
+class DBManager {
+    private $db_name;
+    private $pdo;
+}
+?>
+
+```
 
