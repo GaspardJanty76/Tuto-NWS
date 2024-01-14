@@ -51,6 +51,18 @@ class DBManager {
 
 Comme vous avez pu donc le comprendre ici nous allons préférer PDO à mysqli car il s'adapte à tout type de base de données et est bien plus complet et complexe que mysqli.
 
-### b. 
+### b. fonction __construct
+
+ensuite nous allons créer une fonction privée '__construct'. Cette fonction se trouve à l'interieur de la class 'DBManager' :
+
+```php
+public function __construct(string $DBName) {
+        $this->db_name = $DBName;
+        $dbConfig = $this->loadConfig();
+        $this->connect($dbConfig);
+    }
+```
+
+Celle ci va permettre de récuprer le nom de notre base de données qui sera située dans 'index.php' que nous verrons dans un second temps et d'appeler les fonctions 
 
 
