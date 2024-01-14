@@ -4,6 +4,13 @@
 
 Dans ce tutoriel, nous allons voir comment créer une arborescence de fichiers simple pour établir une connexion à une base de données en PHP en utilisant les informations de connexion stockées dans un fichier JSON. Nous aurons une fonction indépendante dans un fichier dbConnect.php que vous pourrez réutiliser tel quel dans n'importe lequel de vos projets en changeant simplement les données de connexion et le nom de la table.
 
+1. [Création des fichiers et mise en place](#1--création-des-fichiers-et-mise-en-place)
+2. [Le fichier JSON](#2--le-fichier-json)
+3. [Le fichier dbConnect.php](#3--le-fichier-dbconnectphp)
+4. [Le fichier index.php](#4--le-fichier-indexphp)
+5. [Conclusion](#5--conclusion)
+
+
 ## 1 | Création des fichiers et mise en place
 
 Dans un premier temps, nous allons créer notre arborescence de fichiers :
@@ -120,7 +127,7 @@ public function getPDO() {
 
 'getPDO' retourne l'objet PDO stocké dans la propriété de classe '$pdo'. Cela permet d'obtenir l'objet PDO depuis l'extérieur de la classe, offrant ainsi un moyen d'accéder à la connexion à la base de données à partir d'autres parties du code.
 
-## 4 | index.php
+## 4 | Le fichier index.php
 
 Nous allons terminer ce tuto par écrire notre fichier index.php :
 
@@ -134,5 +141,14 @@ $pdo = $pdoManager->getPDO();
 
 On inclut le fichier 'dbConnect.php' qui contient la définition de la classe 'DBManager'.
 Ensuite, on crée une connexion à une base de données en utilisant cette classe 'DBManager' et en spécifiant le nom de la base de données ('nom_de_la_bdd').
+
 On obtient l'objet PDO représentant la connexion en appelant la méthode 'getPDO' de la classe 'DBManager'.
 Enfin, on stocke cet objet PDO dans la variable '$pdo' pour pouvoir l'utiliser dans le reste du code.
+
+## 5 | Conclusion
+
+Mainteant vous savez comment vous connecter à votre base de données de façon simple et sécurisée et à pouvoir utiliser cette connexion dans toutes les pages que vous souhaitez.
+
+Ce code et réutilisable dans l'état et modulable pour vos besoins.
+
+**Bon code à tous**
