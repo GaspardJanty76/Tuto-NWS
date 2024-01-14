@@ -50,9 +50,9 @@ class DBManager {
 
 Comme vous avez pu donc le comprendre ici nous allons préférer PDO à mysqli car il s'adapte à tout type de base de données et est bien plus complet et complexe que mysqli.
 
-### b. fonction __construct
+### b. méthode __construct
 
-Ensuite nous allons créer une fonction privée '__construct'. Cette fonction se trouve à l'interieur de la class 'DBManager' :
+Ensuite nous allons créer une méthode privée '__construct'. Cette méthode se trouve à l'interieur de la class 'DBManager' :
 
 ```php
 public function __construct(string $DBName) {
@@ -62,11 +62,11 @@ public function __construct(string $DBName) {
     }
 ```
 
-Celle ci va permettre de récuprer le nom de notre base de données qui sera située dans 'index.php' que nous verrons dans un second temps et d'appeler les fonctions 'loadConfig' et 'connect' que nous allons voir ci-dessous.
+Celle ci va permettre de récuprer le nom de notre base de données qui sera située dans 'index.php' que nous verrons dans un second temps et d'appeler les méthodes 'loadConfig' et 'connect' que nous allons voir ci-dessous.
 
-### c. fonction loadConfig
+### c. méthode loadConfig
 
-Ici, nous allons créer la fonction 'loadConfig'. Celle-ci va permettre de charger le fichier 'config.json' que nous avons créé précédemment et qui contient toutes les informations nécessaires pour se connecter à notre base de données.
+Ici, nous allons créer la méthode 'loadConfig'. Celle-ci va permettre de charger le fichier 'config.json' que nous avons créé précédemment et qui contient toutes les informations nécessaires pour se connecter à notre base de données :
 
 ```php
 private function loadConfig() {
@@ -83,6 +83,56 @@ private function loadConfig() {
 
 '$configFile' contient donc le chemin d'accès vers le fichier 'config.json', et ensuite, une instruction 'if' vérifie si le fichier est trouvé. Si c'est le cas, nous utilisons la fonction 'json_decode' pour lire le fichier JSON avec PHP. Si le fichier n'est pas trouvé, un message d'erreur indique que le fichier n'a pas été trouvé.
 
-### d.
+### d. méthode connect
 
+maintenant nous allons créer la méthode 'connect' elle va permettre de tenter de se connecter à la base de données grâce à tout ce que l'on a fait précédement :
 
+```php
+private function connect(array $config): void {
+    try {
+        $pdo = new PDO(
+            "mysql:host={$config['host']};dbname={$this->db_name};port={$config['port']}",
+            $config['username'],
+            $config['password']
+        );
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = $pdo;
+
+        echo "Connexion à la base de données réussie.";
+            
+    } catch (PDOException $e) {
+        die("Erreur de connexion : " . $e->getMessage());
+    }
+}
+```
+
+'connect' utilise les informations de connexion fournies par '$config' pour établir une connexion à la base de données à l'aide de l'objet PDO. En cas de succès, elle stocke l'objet PDO dans la propriété de classe '$pdo' et affiche un message de réussite. En cas d'échec, elle affiche un message d'erreur avec les détails de l'exception PDO.
+
+### e. méthode getPDO
+
+Finalement nous allons créer la méthode publique 'getPDO':
+
+```php
+public function getPDO() {
+    return $this->pdo;
+}
+```
+
+'getPDO' retourne l'objet PDO stocké dans la propriété de classe '$pdo'. Cela permet d'obtenir l'objet PDO depuis l'extérieur de la classe, offrant ainsi un moyen d'accéder à la connexion à la base de données à partir d'autres parties du code.
+
+## 4 | index.php
+
+Nous allons terminer ce tuto par écrire notre fichier index.php :
+
+```php
+<?php
+require_once 'methodes/dbConnect.php';
+$pdoManager = new DBManager('nom_de_la_bdd');
+$pdo = $pdoManager->getPDO();
+?>
+```
+
+On inclut le fichier 'dbConnect.php' qui contient la définition de la classe 'DBManager'.
+Ensuite, on crée une connexion à une base de données en utilisant cette classe 'DBManager' et en spécifiant le nom de la base de données ('nom_de_la_bdd').
+On obtient l'objet PDO représentant la connexion en appelant la méthode 'getPDO' de la classe 'DBManager'.
+Enfin, on stocke cet objet PDO dans la variable '$pdo' pour pouvoir l'utiliser dans le reste du code.
