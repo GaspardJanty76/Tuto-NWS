@@ -6,9 +6,14 @@ Dans ce tutoriel, nous allons voir comment créer une arborescence de fichiers s
 
 ## 1 | Création des fichiers et mise en place
 
-Dans un premier temps nous allons créer notre arborescnce de fichier :
-- Nous allons créer un fichier 'index.php'
-- Ensuite nous allons créer un dossier 'methodes' conteant un fichier 'dbConnect.php'
-- Et pour finir nous allons créer un dossier 'json' conteant un fichier 'config.json'
+Dans un premier temps, nous allons créer notre arborescence de fichiers :
 
+- Nous allons créer un fichier 'index.php' à la base de notre dossier.
+- Ensuite, nous allons créer un dossier 'methodes' contenant un fichier 'dbConnect.php'.
+- Enfin, nous allons créer un dossier 'json' contenant un fichier 'config.json'.
+
+## 2 | Le fichier JSON
+
+Commencons par le fichier 'config.json', dans celui-ci nous allons entrer toutes les données nécessaires à la connexion à la base de données.
+Pour ce faire nous allons avoir besoin de **l'adresse de l'hôte de la base de données**, du **port** sur lequelle elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données ainsi que de son **mot de passe** et enfin le **nom de la base de données**
 
