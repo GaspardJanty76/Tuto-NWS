@@ -46,14 +46,13 @@ class DBManager {
     private $pdo;
 }
 ?>
-
 ```
 
 Comme vous avez pu donc le comprendre ici nous allons préférer PDO à mysqli car il s'adapte à tout type de base de données et est bien plus complet et complexe que mysqli.
 
 ### b. fonction __construct
 
-ensuite nous allons créer une fonction privée '__construct'. Cette fonction se trouve à l'interieur de la class 'DBManager' :
+Ensuite nous allons créer une fonction privée '__construct'. Cette fonction se trouve à l'interieur de la class 'DBManager' :
 
 ```php
 public function __construct(string $DBName) {
@@ -63,6 +62,27 @@ public function __construct(string $DBName) {
     }
 ```
 
-Celle ci va permettre de récuprer le nom de notre base de données qui sera située dans 'index.php' que nous verrons dans un second temps et d'appeler les fonctions 
+Celle ci va permettre de récuprer le nom de notre base de données qui sera située dans 'index.php' que nous verrons dans un second temps et d'appeler les fonctions 'loadConfig' et 'connect' que nous allons voir ci-dessous.
+
+### c. fonction loadConfig
+
+Ici, nous allons créer la fonction 'loadConfig'. Celle-ci va permettre de charger le fichier 'config.json' que nous avons créé précédemment et qui contient toutes les informations nécessaires pour se connecter à notre base de données.
+
+```php
+private function loadConfig() {
+    $configFile = __DIR__ . '/../json/config.json';
+    if (file_exists($configFile)) {
+        $config = json_decode(file_get_contents($configFile), true);
+        if ($config) {
+            return $config;
+        }
+    }
+    die("Erreur : Fichier de configuration de la base de données manquant ou incorrect.");
+}
+```
+
+'$configFile' contient donc le chemin d'accès vers le fichier 'config.json', et ensuite, une instruction 'if' vérifie si le fichier est trouvé. Si c'est le cas, nous utilisons la fonction 'json_decode' pour lire le fichier JSON avec PHP. Si le fichier n'est pas trouvé, un message d'erreur indique que le fichier n'a pas été trouvé.
+
+### d.
 
 
