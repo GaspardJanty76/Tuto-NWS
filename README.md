@@ -14,20 +14,22 @@ Dans un premier temps, nous allons créer notre arborescence de fichiers :
 
 ## 2 | Le fichier JSON
 
-Commencons par le fichier 'config.json', dans celui-ci nous allons entrer toutes les données nécessaires à la connexion à la base de données.
+Commençons par le fichier 'config.json'. Dans celui-ci, nous allons entrer toutes les données nécessaires à la connexion à la base de données.
 
-Pour ce faire nous allons avoir besoin de **l'adresse de l'hôte de la base de données**, du **port** sur lequelle elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données ainsi que de son **mot de passe** et enfin le **nom de la base de données**
+Pour ce faire, nous aurons besoin de l'**adresse de l'hôte** de la base de données, du **port** sur lequel elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données, ainsi que de son **mot de passe** et enfin du **nom de la base de données**.
 
-Voici donc le code du fichier JSON, veillez à changer donc les informations par vos propres informations :
+Voici donc le code du fichier JSON. Veillez à changer les informations par vos propres données :
 
 ```json
 {
-"host": "localhost",
-"port": "8888",
-"username": "root",
-"password": "1597",
-"database": "nwsnight"
+"host": "adresse_de_votre_bdd",
+"port": "port_de_votre_bdd",
+"username": "utilisateur_de_votre_bdd",
+"password": "mot_de_passe_de_votre_bdd",
+"database": "nom_de_votre_bdd"
 }
 ```
+
+Voilà, maintenant votre fichier JSON est prêt à l'emploi. N'hésitez pas à le placer dans un fichier gitignore si vous publiez vos travaux sur GitHub afin que personne n'ait accès à vos données sensibles.
 
 
