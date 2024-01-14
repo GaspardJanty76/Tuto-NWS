@@ -18,3 +18,12 @@ Commencons par le fichier 'config.json', dans celui-ci nous allons entrer toutes
 
 Pour ce faire nous allons avoir besoin de **l'adresse de l'hôte de la base de données**, du **port** sur lequelle elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données ainsi que de son **mot de passe** et enfin le **nom de la base de données**
 
+Voici donc le code du fichier JSON, veillez à changer donc les informations par vos propres informations :
+`{
+    "host": "localhost",
+    "port" : "8888",
+    "username": "root",
+    "password": "1597",
+    "database": "nwsnight"
+}`
+
