@@ -22,13 +22,9 @@ Voici donc le code du fichier JSON, veillez à changer donc les informations par
 
 `{
     "host": "localhost",
-
     "port" : "8888",
-
     "username": "root",
-
     "password": "1597",
-
     "database": "nwsnight"
 }`
 
