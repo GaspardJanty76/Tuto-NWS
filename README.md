@@ -15,5 +15,6 @@ Dans un premier temps, nous allons créer notre arborescence de fichiers :
 ## 2 | Le fichier JSON
 
 Commencons par le fichier 'config.json', dans celui-ci nous allons entrer toutes les données nécessaires à la connexion à la base de données.
+
 Pour ce faire nous allons avoir besoin de **l'adresse de l'hôte de la base de données**, du **port** sur lequelle elle se trouve, du **nom d'utilisateur** pour se connecter à la base de données ainsi que de son **mot de passe** et enfin le **nom de la base de données**
 
