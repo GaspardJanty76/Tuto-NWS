@@ -151,4 +151,4 @@ Mainteant vous savez comment vous connecter à votre base de données de façon 
 
 Ce code et réutilisable dans l'état et modulable pour vos besoins.
 
-**Bon code à tous**
+**À vos claviers !**
